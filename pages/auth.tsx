@@ -15,8 +15,9 @@ const Auth: NextPage = (): React.ReactElement => {
           <Box className="auth-box-image"></Box>
           <Box className="auth-box-form">
             <FormControl>
-              <h1>POS</h1>
+              <p className="text-3xl font-bold">POS</p>
               <MyTextField
+                className="mt-5"
                 id="email"
                 label="Email"
                 onChange={(e) => {
@@ -24,7 +25,7 @@ const Auth: NextPage = (): React.ReactElement => {
                 }}
               />
               <MyTextField
-                className="mt-10"
+                className="mt-5"
                 id="password"
                 label="Password"
                 type="password"
@@ -32,11 +33,7 @@ const Auth: NextPage = (): React.ReactElement => {
                   console.log(e.target.value);
                 }}
               />
-              <MyLoadingButton
-                className="mt-10"
-                size="large"
-                variant="outlined"
-              >
+              <MyLoadingButton className="mt-5" size="large" variant="outlined">
                 SignIn
               </MyLoadingButton>
             </FormControl>

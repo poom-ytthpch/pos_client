@@ -33,8 +33,4 @@ a {
   transform: translate(-50%, -50%);
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@import "auth";
+@import "auth" , "tailwindcss/base", "tailwindcss/components", "tailwindcss/utilities";
