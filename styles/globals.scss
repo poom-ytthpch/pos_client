@@ -22,12 +22,7 @@ a {
   body {
     color: white;
     background: black;
-
   }
-}
-
-.mt-10 {
-  margin-top: 10px;
 }
 
 .centered {
@@ -37,5 +32,9 @@ a {
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @import "auth";
