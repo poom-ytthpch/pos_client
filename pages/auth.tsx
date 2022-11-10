@@ -8,7 +8,6 @@ import { LoadingButton } from "@mui/lab";
 import MyLoadingButton from "./component/materials/MyLoadingButton";
 import LoginIcon from "@mui/icons-material/Login";
 
-
 const Auth: NextPage = (): React.ReactElement => {
   return (
     <Box title="auth" className="bg-dot">
@@ -16,12 +15,11 @@ const Auth: NextPage = (): React.ReactElement => {
         <Box className="auth-box">
           <Box className="auth-box-image"></Box>
           <Box className="auth-box-form">
-            <FormControl>
-              <Box>
+            <FormControl variant="outlined" className="auth-box-form-control">
+              <Box className="auth-box-form-header">
                 <p className="text-color text-3xl font-bold">MEAW POS</p>
               </Box>
               <MyTextField
-                className="mt-5"
                 id="email"
                 label="Email"
                 onChange={(e) => {
@@ -29,7 +27,6 @@ const Auth: NextPage = (): React.ReactElement => {
                 }}
               />
               <MyTextField
-                className="mt-5"
                 id="password"
                 label="Password"
                 type="password"
@@ -38,7 +35,6 @@ const Auth: NextPage = (): React.ReactElement => {
                 }}
               />
               <MyLoadingButton
-                className="mt-5"
                 size="large"
                 variant="outlined"
                 startIcon={<LoginIcon />}

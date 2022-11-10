@@ -18,6 +18,13 @@
         border-radius: 0px 10px 10px 0px;
         text-align: center;
         padding: 10px;
+        .auth-box-form-control {
+            display: grid;
+            justify-content: center;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            align-items: center;
+            height: 100%;
+        }
     }
     .auth-box-image {
         height: 100%;
