@@ -1,21 +1,21 @@
 .auth-box {
-    display: grid;
-    min-height: 300px;
-    min-width: 700px;
-    grid-template-columns: 1fr 1fr;
-    justify-items: stretch;
-    align-items: stretch;
-    column-gap: 0px;
-    row-gap: 0px;
+    display: flex;
+    flex-wrap: wrap;
     border-radius: 10px;
     // box-shadow: 2px 2px 8px 5px rgba(255, 255, 255, 0.1);
-
+    align-items: stretch;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #ffe4b5;
     .auth-box-form {
-        height: 100%;
-        width: 300px;
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 400px;
         color: #ffff;
-        background-color: #ffe4b5;
-        border-radius: 0px 10px 10px 0px;
+
+        // border-radius: 0px 10px 10px 0px;
         text-align: center;
         padding: 10px;
         .auth-box-form-control {
@@ -27,10 +27,11 @@
         }
     }
     .auth-box-image {
-        height: 100%;
-        width: 400px;
-        background-color: #ffe4b5;
-        border-radius: 10px 0px 0px 10px;
+        min-height: 300px;
+        min-width: 300px;
+        max-width: 300px;
+
+        // border-radius: 10px 0px 0px 10px;
     }
 }
 

@@ -7,8 +7,16 @@ import { FormControl } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import MyLoadingButton from "./component/materials/MyLoadingButton";
 import LoginIcon from "@mui/icons-material/Login";
+import { client } from "../common/apollo-client";
 
 const Auth: NextPage = (): React.ReactElement => {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const handleSetEmail = (e: any) => {
+    console.log(e.target.value);
+  };
+
   return (
     <Box title="auth" className="bg-dot">
       <Box className="centered">
@@ -23,9 +31,7 @@ const Auth: NextPage = (): React.ReactElement => {
                 id="email"
                 label="Email"
                 variant="standard"
-                onChange={(e) => {
-                  console.log(e.target.value);
-                }}
+                onChange={handleSetEmail}
               />
               <MyTextField
                 id="password"

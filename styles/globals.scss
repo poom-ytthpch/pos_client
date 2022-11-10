@@ -26,15 +26,17 @@ a {
 }
 
 .text-color {
-  color: #FFFF;
+  color: #ffff;
 }
 
 .centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 50%; /* IMPORTANT */
+  left: 50%; /* IMPORTANT */
+  display: block;
+  position: absolute;
+
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
 
-@import "auth" , "tailwindcss/base", "tailwindcss/components", "tailwindcss/utilities";
+@import "auth", "tailwindcss/base", "tailwindcss/components", "tailwindcss/utilities";
