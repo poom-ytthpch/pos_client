@@ -6,31 +6,31 @@ const MyTextField = styled(TextField)({
     color: "#5E07A0",
   },
   "& label.Mui-focused": {
-    color: "#778899",
+    color: "#FFFF",
   },
   "& label": {
-    color: "#778899",
+    color: "#FFFF",
   },
   "& input": {
-    color: "#778899",
+    color: "#FFFF",
   },
   "& .MuiInput-underline:after": {
     borderBottomColor: "green",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      borderColor: "#778899",
+      borderColor: "#FFFF",
     },
     "& label": {
-      color: "#778899",
+      color: "#FFFF",
     },
     "&:hover fieldset": {
-      borderColor: "#778899",
-      color: "#778899",
+      borderColor: "#FFFF",
+      color: "#FFFF",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#778899",
-      color: "#778899",
+      borderColor: "#FFFF",
+      color: "#FFFF",
     },
   },
 });

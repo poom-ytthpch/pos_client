@@ -22,6 +22,7 @@ const Auth: NextPage = (): React.ReactElement => {
               <MyTextField
                 id="email"
                 label="Email"
+                variant="standard"
                 onChange={(e) => {
                   console.log(e.target.value);
                 }}
@@ -30,6 +31,7 @@ const Auth: NextPage = (): React.ReactElement => {
                 id="password"
                 label="Password"
                 type="password"
+                variant="standard"
                 onChange={(e) => {
                   console.log(e.target.value);
                 }}
