@@ -6,6 +6,8 @@ import MyTextField from "./component/materials/MyTextField";
 import { FormControl } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import MyLoadingButton from "./component/materials/MyLoadingButton";
+import LoginIcon from "@mui/icons-material/Login";
+
 
 const Auth: NextPage = (): React.ReactElement => {
   return (
@@ -15,7 +17,9 @@ const Auth: NextPage = (): React.ReactElement => {
           <Box className="auth-box-image"></Box>
           <Box className="auth-box-form">
             <FormControl>
-              <p className="text-3xl font-bold">POS</p>
+              <Box>
+                <p className="text-color text-3xl font-bold">MEAW POS</p>
+              </Box>
               <MyTextField
                 className="mt-5"
                 id="email"
@@ -33,7 +37,12 @@ const Auth: NextPage = (): React.ReactElement => {
                   console.log(e.target.value);
                 }}
               />
-              <MyLoadingButton className="mt-5" size="large" variant="outlined">
+              <MyLoadingButton
+                className="mt-5"
+                size="large"
+                variant="outlined"
+                startIcon={<LoginIcon />}
+              >
                 SignIn
               </MyLoadingButton>
             </FormControl>
