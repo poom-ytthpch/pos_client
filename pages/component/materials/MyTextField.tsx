@@ -1,36 +1,37 @@
 import { TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Config from "../../../config.json";
 
 const MyTextField = styled(TextField)({
   "& input.Mui-input": {
     color: "#5E07A0",
   },
   "& label.Mui-focused": {
-    color: "#FFFF",
+    color: Config.color,
   },
   "& label": {
-    color: "#FFFF",
+    color: Config.color,
   },
   "& input": {
-    color: "#FFFF",
+    color: Config.color,
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: "green",
+    borderBottomColor: "grey",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      borderColor: "#FFFF",
+      borderColor: Config.color,
     },
     "& label": {
-      color: "#FFFF",
+      color: Config.color,
     },
     "&:hover fieldset": {
-      borderColor: "#FFFF",
-      color: "#FFFF",
+      borderColor: Config.color,
+      color: Config.color,
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#FFFF",
-      color: "#FFFF",
+      borderColor: Config.color,
+      color: Config.color,
     },
   },
 });

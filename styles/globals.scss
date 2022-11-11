@@ -15,18 +15,18 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}
+// @media (prefers-color-scheme: dark) {
+//   html {
+//     color-scheme: dark;
+//   }
+//   body {
+//     color: white;
+//     background: black;
+//   }
+// }
 
 .text-color {
-  color: #ffff;
+  color: black;
 }
 
 .centered {
@@ -39,4 +39,4 @@ a {
   transform: translate(-50%, -50%);
 }
 
-@import "auth", "tailwindcss/base", "tailwindcss/components", "tailwindcss/utilities";
+@import "auth", "loading", "tailwindcss/base", "tailwindcss/components", "tailwindcss/utilities";

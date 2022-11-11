@@ -17,6 +17,7 @@ specifiers:
   dotenv: ^16.0.3
   eslint: 8.27.0
   eslint-config-next: 13.0.2
+  graphql: ^16.6.0
   next: 13.0.2
   next-redux-wrapper: ^8.0.0
   postcss: ^8.4.18
@@ -29,11 +30,12 @@ specifiers:
   redux-persist-transform-encrypt: ^4.0.0
   redux-thunk: ^2.4.1
   sass: ^1.56.1
+  sweetalert2: ^11.6.8
   tailwindcss: ^3.2.2
   typescript: 4.8.4
 
 dependencies:
-  '@apollo/client': 3.7.1_biqbaboplfbrettd7655fr4n2y
+  '@apollo/client': 3.7.1_gdcq4dv6opitr3wbfwyjmanyra
   '@emotion/react': 11.10.5_fan5qbzahqtxlm5dzefqlqx5ia
   '@emotion/styled': 11.10.5_otcjdfkheatawhug6fwk7ldzni
   '@mui/icons-material': 5.10.9_4tcfjhohj57yvze6zkot3vymie
@@ -48,6 +50,7 @@ dependencies:
   dotenv: 16.0.3
   eslint: 8.27.0
   eslint-config-next: 13.0.2_rmayb2veg2btbq6mbmnyivgasy
+  graphql: 16.6.0
   next: 13.0.2_m5sxuueb27gk6ddc5gums6vtgq
   next-redux-wrapper: 8.0.0_xbfmx2de2gkpuapwccsqd3lwsu
   react: 18.2.0
@@ -58,6 +61,7 @@ dependencies:
   redux-persist-transform-encrypt: 4.0.0_azsbnm24e4w63msluf37aecanu
   redux-thunk: 2.4.2_redux@4.2.0
   sass: 1.56.1
+  sweetalert2: 11.6.8
   typescript: 4.8.4
 
 devDependencies:
@@ -68,7 +72,7 @@ devDependencies:
 
 packages:
 
-  /@apollo/client/3.7.1_biqbaboplfbrettd7655fr4n2y:
+  /@apollo/client/3.7.1_gdcq4dv6opitr3wbfwyjmanyra:
     resolution: {integrity: sha512-xu5M/l7p9gT9Fx7nF3AQivp0XukjB7TM7tOd5wifIpI8RskYveL4I+rpTijzWrnqCPZabkbzJKH7WEAKdctt9w==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
@@ -86,11 +90,12 @@ packages:
       subscriptions-transport-ws:
         optional: true
     dependencies:
-      '@graphql-typed-document-node/core': 3.1.1
+      '@graphql-typed-document-node/core': 3.1.1_graphql@16.6.0
       '@wry/context': 0.7.0
       '@wry/equality': 0.5.3
       '@wry/trie': 0.3.2
-      graphql-tag: 2.12.6
+      graphql: 16.6.0
+      graphql-tag: 2.12.6_graphql@16.6.0
       hoist-non-react-statics: 3.3.2
       optimism: 0.16.1
       prop-types: 15.8.1
@@ -316,10 +321,12 @@ packages:
       - supports-color
     dev: false
 
-  /@graphql-typed-document-node/core/3.1.1:
+  /@graphql-typed-document-node/core/3.1.1_graphql@16.6.0:
     resolution: {integrity: sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      graphql: 16.6.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.7:
@@ -1817,13 +1824,19 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: false
 
-  /graphql-tag/2.12.6:
+  /graphql-tag/2.12.6_graphql@16.6.0:
     resolution: {integrity: sha512-FdSNcu2QQcWnM2VNvSCCDCVS5PpPqpzgFT8+GXzqJuoDd0CBncxCY278u4mhRO7tMgo2JjgJA5aZ+nWSQ/Z+xg==}
     engines: {node: '>=10'}
     peerDependencies:
       graphql: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:
+      graphql: 16.6.0
       tslib: 2.4.1
+    dev: false
+
+  /graphql/16.6.0:
+    resolution: {integrity: sha512-KPIBPDlW7NxrbT/eh4qPXz5FiFdL5UbaA0XUNz2Rp3Z3hqBSkbj0GVjwFDztsWVauZUWsbKHgMg++sk8UX0bkw==}
+    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
     dev: false
 
   /has-bigints/1.0.2:
@@ -2851,6 +2864,10 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  /sweetalert2/11.6.8:
+    resolution: {integrity: sha512-0YHMaqF3DC67EI9uZzHpbU34rQV3acEFlnUCYmDSDNkeNOSFtSlF4DbWilfln+iUYv9s9aqbREXmKZRJqh5G5w==}
+    dev: false
 
   /symbol-observable/4.0.0:
     resolution: {integrity: sha512-b19dMThMV4HVFynSAM1++gBHAbk2Tc/osgLIBZMKsyqh34jb2e8Os7T6ZW/Bt3pJFdBTd2JwAnAAEQV7rSNvcQ==}
