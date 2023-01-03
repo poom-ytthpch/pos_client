@@ -1,13 +1,52 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import dynamic from "next/dynamic";
 import Loading from "./component/layouts/Loading";
-
+import { client } from "../common/apollo-client";
+import { gql } from "@apollo/client";
 const Default = dynamic(() => import("./component/Default"), {
   suspense: true,
 });
+import { toBase64 } from "../common/FiletoBase64";
+
 export default function Home() {
+  const [file, setFile] = useState("");
+  const [fileName, setFileName] = useState("");
+  const [fileType, setFileType] = useState("");
+  const [image, setImage] = useState("");
+
+  const handleFileChange = async (e: any) => {
+    let tmpFile = await e.target.files[0];
+    let tmpSplitFile = tmpFile.name.split(".");
+    await setFileType("." + tmpSplitFile[1]);
+    let tmpBase64 = await toBase64(tmpFile);
+    await setFileName(tmpFile.name);
+    await setFile(String(tmpBase64));
+  };
+
+  const uploadFile = async (e: any) => {
+    e.preventDefault();
+    // let formData = new FormData();
+    // formData.append("file", file as unknown as any);
+    const { data } = await client.mutate({
+      mutation: gql`
+        mutation UploadFile($uploadFileInput: UploadFileInput) {
+          uploadFile(uploadFileInput: $uploadFileInput)
+        }
+      `,
+      variables: {
+        uploadFileInput: {
+          file: file,
+          fileName: fileName,
+        },
+      },
+    });
+    console.log(fileName);
+    await setImage(`http://localhost:4012/${fileName}`);
+    console.log(data);
+  };
+
   return (
     <Suspense fallback={<Loading />}>
       <Default title="Index">
@@ -16,6 +55,17 @@ export default function Home() {
             <h1 className={styles.title}>
               Welcome to <a href="https://nextjs.org">Next.js!</a>
             </h1>
+
+            <form>
+              <input
+                type="file"
+                name="bin"
+                onChange={(e) => handleFileChange(e)}
+              ></input>
+              <button onClick={uploadFile}>Upload</button>
+            </form>
+
+            <img src={image}></img>
 
             <p className={styles.description}>
               Get started by editing{" "}

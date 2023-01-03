@@ -35,6 +35,7 @@ import { useDispatch } from "react-redux";
 import { signOut } from "../../../store";
 import MyAppBar from "../materials/MyAppBar";
 import MyDrawer from "../materials/MyDrawer";
+import InventoryIcon from "@mui/icons-material/Inventory";
 const drawerWidth = 240;
 
 const Icons = [
@@ -43,6 +44,7 @@ const Icons = [
   { name: "ViewInArIcon", icon: <ViewInArIcon key={2} /> },
   { name: "PersonAddAltIcon", icon: <PersonAddAltIcon key={3} /> },
   { name: "LoupeIcon", icon: <LoupeIcon key={4} /> },
+  { name: "InventoryIcon", icon: <InventoryIcon key={5} /> },
 ];
 
 interface AppBarProps extends MuiAppBarProps {
@@ -83,10 +85,9 @@ interface UserInfo {
   auth: { userInfo: object };
 }
 
-
 const TopBar: NextPage = (): React.ReactElement => {
   const dispatch = useDispatch();
-  const router = useRouter()
+  const router = useRouter();
   let userInfo: any;
   userInfo = useSelector<UserInfo>((state) => state.auth.userInfo);
   const userRole = useSelector<UserRole>((state) => state.auth.userRole);
@@ -97,35 +98,32 @@ const TopBar: NextPage = (): React.ReactElement => {
   const [loading, setLoading] = React.useState<boolean>(false);
 
   useEffect(() => {
-    const expire = setInterval(async () => {
-      if (userInfo.token !== "") {
-        const decodedJwt = await parseJwt(userInfo.token);
-
-        console.log(Number(decodedJwt.exp) * 1000 - Date.now());
-
-        if (Date.now() >= Number(decodedJwt.exp) * 1000) {
-          Swal.fire({
-            icon: "error",
-            title: "Sign In Has Expired!",
-            text: "Please Sign In Again",
-            color: "#FFFFFF",
-            background: "#191919",
-            cancelButtonText: "OK",
-            showCancelButton: true,
-            showConfirmButton: false,
-          });
-          await Router.push("/");
-          await handleLogout();
-          await clearInterval(expire);
-        }
-      } else {
-        await clearInterval(expire);
-      }
-
-      setTimeout(() => {
-        setLoading(false);
-      }, 100);
-    }, 1000);
+    // const expire = setInterval(async () => {
+    //   if (userInfo.token !== "") {
+    //     const decodedJwt = await parseJwt(userInfo.token);
+    //     console.log(Number(decodedJwt.exp) * 1000 - Date.now());
+    //     if (Date.now() >= Number(decodedJwt.exp) * 1000) {
+    //       Swal.fire({
+    //         icon: "error",
+    //         title: "Sign In Has Expired!",
+    //         text: "Please Sign In Again",
+    //         color: "#FFFFFF",
+    //         background: "#191919",
+    //         cancelButtonText: "OK",
+    //         showCancelButton: true,
+    //         showConfirmButton: false,
+    //       });
+    //       await Router.push("/");
+    //       await handleLogout();
+    //       await clearInterval(expire);
+    //     }
+    //   } else {
+    //     await clearInterval(expire);
+    //   }
+    //   setTimeout(() => {
+    //     setLoading(false);
+    //   }, 100);
+    // }, 1000);
   }, [userInfo]);
 
   const handleDrawerOpen = () => {
@@ -137,7 +135,7 @@ const TopBar: NextPage = (): React.ReactElement => {
   };
 
   const handleLogout = async () => {
-    await router.push("/auth")
+    await router.push("/auth");
 
     await dispatch(signOut());
     // await setUserRole("");
@@ -150,7 +148,7 @@ const TopBar: NextPage = (): React.ReactElement => {
       {loading && <Loading />}
 
       <CssBaseline />
-      <MyAppBar position="static" >
+      <MyAppBar position="static">
         <Toolbar>
           {userInfo.id === undefined ? (
             <></>
@@ -180,7 +178,7 @@ const TopBar: NextPage = (): React.ReactElement => {
               >
                 <Box
                   onClick={() => {
-                    router.push("/");
+                    router.push("/", "", { shallow: true });
                   }}
                   sx={{
                     display: "flex",
@@ -297,7 +295,7 @@ const TopBar: NextPage = (): React.ReactElement => {
           {Config.list.map((data) => {
             return (
               <ListItem key={data.name} disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => router.push(`/${data.name}`,"", { shallow: true })}>
                   <ListItemIcon>
                     {Icons.map((ic) => {
                       return ic.name === data.icon && ic.icon;

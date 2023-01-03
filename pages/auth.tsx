@@ -1,14 +1,10 @@
 import * as React from "react";
 import { NextPage } from "next";
-import Default from "./component/Default";
 import { Box, Button } from "@mui/material";
 import MyTextField from "./component/materials/MyTextField";
 import { FormControl } from "@mui/material";
-import { LoadingButton } from "@mui/lab";
 import MyLoadingButton from "./component/materials/MyLoadingButton";
 import LoginIcon from "@mui/icons-material/Login";
-import { client } from "../common/apollo-client";
-import { gql } from "@apollo/client";
 import { useDispatch } from "react-redux";
 import { signIn } from "../store/slices/auth";
 import { signOut } from "../store";
@@ -58,8 +54,6 @@ const Auth: NextPage = (): React.ReactElement => {
           id: 1,
           email: "admin@admin.com",
           name: "admin",
-          password:
-            "$2b$10$Ot6dEm77ROJRzl45py1QiOGaEkxszubIqXL1Qdjkkz58WUbAcJ2MO",
           token:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoxLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NjgxNTM4MDEsImV4cCI6MTY2ODE1NzQwMX0.9QTN4fnRmuJrTw57hPGk0hBl1m_gYl4SAClcOZVGZlM",
           refreshToken:

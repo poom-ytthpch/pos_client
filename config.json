@@ -1,11 +1,11 @@
 {
-  "logoName": "logoname",
+  "logoName": "meawpos",
   "color":"black",
   "bgColor":"#ffe4b5",
   "list": [
     { "name": "3d view", "icon": "ViewInArIcon" },
     { "name": "dashboard", "icon": "BarChartIcon" },
-    { "name": "device", "icon": "GamepadIcon" }
+    { "name": "product", "icon": "InventoryIcon" }
   ],
   "adminList":[
     { "name": "create user", "icon": "PersonAddAltIcon" },
