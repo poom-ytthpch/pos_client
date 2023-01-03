@@ -198,7 +198,7 @@ const CreateProduct = ({ open, handleChange }: Props) => {
               >
                 {categories.map((cate: Category) => {
                   return (
-                    <MenuItem value={String(cate?.cate_id)}>
+                    <MenuItem key={cate?.cate_id} value={String(cate?.cate_id)}>
                       {cate?.cate_name}
                     </MenuItem>
                   );
@@ -220,7 +220,7 @@ const CreateProduct = ({ open, handleChange }: Props) => {
               >
                 {units.map((unit: Unit) => {
                   return (
-                    <MenuItem value={String(unit?.unit_id)}>
+                    <MenuItem key={unit?.unit_id} value={String(unit?.unit_id)}>
                       {unit?.unit_name}
                     </MenuItem>
                   );
