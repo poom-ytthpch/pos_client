@@ -65,7 +65,7 @@ export default function Home() {
               <button onClick={uploadFile}>Upload</button>
             </form>
 
-            <Image src={image}></Image>
+            <Image src={image} alt={""} />
 
             <p className={styles.description}>
               Get started by editing{" "}
